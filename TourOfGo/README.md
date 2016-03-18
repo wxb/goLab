@@ -169,3 +169,70 @@ u := uint(f)
     fmt.Println(sum)
     }
 ```
+
+## if
+* if 语句类似于 `for`：除了没有了 `( )` 之外（甚至强制不能使用它们），看起来跟 C 或者 Java 中的一样，而 `{ }` 是必须的。    
+```go
+    func sqrt(x float64) string {
+    	if x < 0 {
+    		return sqrt(-x) + "i"
+    	}
+    	return fmt.Sprint(math.Sqrt(x))
+    }
+```
+* if的便捷语句：`if` 语句可以在条件之前执行一个简单的语句，由这个语句定义的变量的作用域仅在 if 范围之内。      
+```go
+    if v := math.Pow(x, n); v < lim {
+        return v
+    } else {
+        fmt.Printf("%g >= %g\n", v, lim)
+    }
+``
+* `if` 和 `else` 和其他语言类似（参考上例）
+
+## switch
+switch语句和C,Java,php类似，区别是：switch从上到下的执行，当匹配成功的时候停止。也就是说没有c,java,php中类似的 `break` 的情况！Go语言中的分支是自动终止的！但是Go提供了一个`fallthrough`语句来结束分支情况    
+```go
+    func main() {
+    	fmt.Println("When's Saturday?")
+    	today := time.Now().Weekday()
+    	switch time.Saturday {
+    	case today + 0:
+    		fmt.Println("Today.")
+    	case today + 1:
+    		fmt.Println("Tomorrow.")
+    	case today + 2:
+    		fmt.Println("In two days.")
+    	default:
+    		fmt.Println("Too far away.")
+    	}
+    }
+```
+*** 没有条件的 switch 同 `switch true` 一样。这一构造使得可以用更清晰的形式来编写长的 if-then-else 链。***      
+
+## defer
+defer 语句会延迟函数的执行直到上层函数返回。延迟调用的参数会立刻生成，但是在上层函数返回前函数都不会被调用。     
+延迟的函数调用被压入一个栈中。当函数返回时， 会按照后进先出的顺序调用被延迟的函数调用。    
+```go
+    package main
+
+    import "fmt"
+
+    func main() {
+    	fmt.Println("counting")
+
+    	for i := 0; i < 10; i++ {
+    		//defer fmt.Println(i)
+    		fmt.Println(i)
+    	}
+    	for i := 0; i < 10; i++ {
+    		defer fmt.Println(i)
+    	}
+
+    	fmt.Println("done")
+    }
+```
+## Go指针  
+* Go 和C语言一样具有指针。 指针保存了变量的内存地址。但是与 C 不同，Go 没有指针运算  
+* 类型 `*T` 是指向类型 T 的值的指针。其零值是 `nil`。    
+* `&` 符号会生成一个指向其作用对象的指针,也就是取地址符。
