@@ -1,6 +1,8 @@
 package main
 
 import "fmt"
+import "reflect"
+import "strconv"
 
 func main() {
 	/*
@@ -130,24 +132,42 @@ func main() {
 		}
 	*/
 
-	type person struct {
-		Name string
-		Age  int
-	}
+	/*
+		type person struct {
+			Name string
+			Age  int
+		}
 
-	a := person{
-		Name: "王小波",
-	}
-	a.Age = 28
-	fmt.Println(a)
+		a := person{
+			Name: "王小波",
+		}
+		a.Age = 28
+		fmt.Println(a)
 
-	b := struct {
-		Name string
-		Age  int
-	}{
-		Name: "wangxiao",
-		Age:  29,
-	}
-	fmt.Println(b)
+		b := struct {
+			Name string
+			Age  int
+		}{
+			Name: "wangxiao",
+			Age:  29,
+		}
+		fmt.Println(b)
+	*/
 
+	c := make(chan bool)
+
+	go func() {
+		name := "wang xiaobo bo"
+		for _, v := range name {
+			tt := strconv.Itoa(666)
+			fmt.Println(tt, reflect.TypeOf(v))
+			//fmt.Println(strconv.Atoi(reflect.TypeOf(tt)))
+		}
+		c <- true
+		close(c)
+	}()
+
+	for v := range c {
+		fmt.Println(v)
+	}
 }
