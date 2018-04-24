@@ -19,11 +19,11 @@ func SayHi() {
 func main() {
 	c = make(chan string)
 	names := map[int]string{1: "wang xiaobo", 2: "王晓勃"}
+	go SayHi()
 	for _, v := range names {
-		go SayHi()
 		c <- v
 		fmt.Println("From main: ", <-c)
 	}
 
-	time.Sleep(2*time.Second)
+	time.Sleep(2 * time.Second)
 }
