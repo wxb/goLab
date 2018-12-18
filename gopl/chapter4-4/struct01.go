@@ -18,5 +18,20 @@ type Employee struct {
 
 func main() {
 	var dilbert Employee
-	fmt.Println(dilbert)
+	fmt.Println(dilbert, &dilbert, &dilbert.Name, &dilbert.ID)
+
+	position := &dilbert.Position
+	fmt.Println(position, *position)
+	*position += "Senior "
+	fmt.Println(position, *position)
+
+	// employeeOfTheMonth := &Employee{}
+	// var employeeOfTheMonth *Employee = &dilbert
+	var employeeOfTheMonth = &dilbert
+	fmt.Println(employeeOfTheMonth, *employeeOfTheMonth)
+
+	employeeOfTheMonth.Position += " (proactive team player)"
+	(*employeeOfTheMonth).Salary = 29
+	fmt.Println(*employeeOfTheMonth, dilbert)
+
 }
