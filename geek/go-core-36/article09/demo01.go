@@ -28,6 +28,7 @@ func main() {
 
 	p04 := new(map[int]string)
 	//(*p04)[1] = "ss" // panic: assignment to entry in nil map
+	p04 = &map[int]string{1: "a"}
 	fmt.Println(p04, *p04 == nil)
 
 	p05 := new(int)
@@ -47,7 +48,7 @@ func main() {
 /*
 在值为nil的字典上执行读操作会成功吗，那写操作呢？
 
-对于slice、map、channel类型的某个nil变量，除了添加 键值对外，其他的任何操作都不会引起panic
+对于slice、map、channel类型的某个nil变量，除了添加 键值对外，其他的任何操作都不会引起panic; 直接用索引表达式添加
 
 极客时间版权所有: https://time.geekbang.org/column/article/14123
 */
