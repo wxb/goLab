@@ -21,4 +21,7 @@ func main() {
 		fmt.Println(fib(k))
 		fmt.Println(f(k))
 	}
+
+	ff, is := interface{}(f).(Fib)
+	fmt.Println(ff, is)
 }
