@@ -18,10 +18,10 @@ func fib(n int) int {
 func main() {
 	f := fib
 	for k := range [10]uint{} {
-		fmt.Println(fib(k))
+		// fmt.Println(fib(k))
 		fmt.Println(f(k))
 	}
 
-	ff, is := interface{}(f).(Fib)
-	fmt.Println(ff, is)
+	// ff, is := interface{}(f).(Fib)
+	// fmt.Println(ff, is)
 }

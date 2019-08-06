@@ -12,7 +12,7 @@ func BenchmarkSprintf(b *testing.B) {
 
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
-		fmt.Sprintf("%d", number)
+		fmt.Printf("%d", number)
 	}
 	b.StopTimer()
 }
