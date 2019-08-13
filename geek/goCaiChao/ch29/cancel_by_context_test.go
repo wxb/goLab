@@ -16,14 +16,6 @@ func isCancelled(ctx context.Context) bool {
 	}
 }
 
-func cancel1(ch chan struct{}) {
-	ch <- struct{}{}
-}
-
-func cancel2(ch chan struct{}) {
-	close(ch)
-}
-
 func TestCancel(t *testing.T) {
 	ctx, cancel := context.WithCancel(context.Background())
 
@@ -43,4 +35,5 @@ func TestCancel(t *testing.T) {
 
 	cancel()
 	time.Sleep(time.Millisecond * 100)
+	t.Logf(ctx.Err().Error())
 }
