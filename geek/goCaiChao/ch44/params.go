@@ -13,3 +13,8 @@ type Employee struct {
 	BasicInfo BasicInfo `json:"basic_info"`
 	JobInfo   JobInfo   `json:"job_info"`
 }
+
+//easyjson:json
+type HomeInfo struct {
+	Address string `json:"address"`
+}
