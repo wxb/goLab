@@ -4,7 +4,6 @@ package ch44
 
 import (
 	json "encoding/json"
-
 	easyjson "github.com/mailru/easyjson"
 	jlexer "github.com/mailru/easyjson/jlexer"
 	jwriter "github.com/mailru/easyjson/jwriter"
@@ -116,7 +115,73 @@ func (v *JobInfo) UnmarshalJSON(data []byte) error {
 func (v *JobInfo) UnmarshalEasyJSON(l *jlexer.Lexer) {
 	easyjsonF1d45baeDecodeGithubComWxbGoLabGeekGoCaiChaoCh44(l, v)
 }
-func easyjsonF1d45baeDecodeGithubComWxbGoLabGeekGoCaiChaoCh441(in *jlexer.Lexer, out *Employee) {
+func easyjsonF1d45baeDecodeGithubComWxbGoLabGeekGoCaiChaoCh441(in *jlexer.Lexer, out *HomeInfo) {
+	isTopLevel := in.IsStart()
+	if in.IsNull() {
+		if isTopLevel {
+			in.Consumed()
+		}
+		in.Skip()
+		return
+	}
+	in.Delim('{')
+	for !in.IsDelim('}') {
+		key := in.UnsafeString()
+		in.WantColon()
+		if in.IsNull() {
+			in.Skip()
+			in.WantComma()
+			continue
+		}
+		switch key {
+		case "address":
+			out.Address = string(in.String())
+		default:
+			in.SkipRecursive()
+		}
+		in.WantComma()
+	}
+	in.Delim('}')
+	if isTopLevel {
+		in.Consumed()
+	}
+}
+func easyjsonF1d45baeEncodeGithubComWxbGoLabGeekGoCaiChaoCh441(out *jwriter.Writer, in HomeInfo) {
+	out.RawByte('{')
+	first := true
+	_ = first
+	{
+		const prefix string = ",\"address\":"
+		out.RawString(prefix[1:])
+		out.String(string(in.Address))
+	}
+	out.RawByte('}')
+}
+
+// MarshalJSON supports json.Marshaler interface
+func (v HomeInfo) MarshalJSON() ([]byte, error) {
+	w := jwriter.Writer{}
+	easyjsonF1d45baeEncodeGithubComWxbGoLabGeekGoCaiChaoCh441(&w, v)
+	return w.Buffer.BuildBytes(), w.Error
+}
+
+// MarshalEasyJSON supports easyjson.Marshaler interface
+func (v HomeInfo) MarshalEasyJSON(w *jwriter.Writer) {
+	easyjsonF1d45baeEncodeGithubComWxbGoLabGeekGoCaiChaoCh441(w, v)
+}
+
+// UnmarshalJSON supports json.Unmarshaler interface
+func (v *HomeInfo) UnmarshalJSON(data []byte) error {
+	r := jlexer.Lexer{Data: data}
+	easyjsonF1d45baeDecodeGithubComWxbGoLabGeekGoCaiChaoCh441(&r, v)
+	return r.Error()
+}
+
+// UnmarshalEasyJSON supports easyjson.Unmarshaler interface
+func (v *HomeInfo) UnmarshalEasyJSON(l *jlexer.Lexer) {
+	easyjsonF1d45baeDecodeGithubComWxbGoLabGeekGoCaiChaoCh441(l, v)
+}
+func easyjsonF1d45baeDecodeGithubComWxbGoLabGeekGoCaiChaoCh442(in *jlexer.Lexer, out *Employee) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -149,7 +214,7 @@ func easyjsonF1d45baeDecodeGithubComWxbGoLabGeekGoCaiChaoCh441(in *jlexer.Lexer,
 		in.Consumed()
 	}
 }
-func easyjsonF1d45baeEncodeGithubComWxbGoLabGeekGoCaiChaoCh441(out *jwriter.Writer, in Employee) {
+func easyjsonF1d45baeEncodeGithubComWxbGoLabGeekGoCaiChaoCh442(out *jwriter.Writer, in Employee) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -169,27 +234,27 @@ func easyjsonF1d45baeEncodeGithubComWxbGoLabGeekGoCaiChaoCh441(out *jwriter.Writ
 // MarshalJSON supports json.Marshaler interface
 func (v Employee) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjsonF1d45baeEncodeGithubComWxbGoLabGeekGoCaiChaoCh441(&w, v)
+	easyjsonF1d45baeEncodeGithubComWxbGoLabGeekGoCaiChaoCh442(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v Employee) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjsonF1d45baeEncodeGithubComWxbGoLabGeekGoCaiChaoCh441(w, v)
+	easyjsonF1d45baeEncodeGithubComWxbGoLabGeekGoCaiChaoCh442(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *Employee) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjsonF1d45baeDecodeGithubComWxbGoLabGeekGoCaiChaoCh441(&r, v)
+	easyjsonF1d45baeDecodeGithubComWxbGoLabGeekGoCaiChaoCh442(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *Employee) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjsonF1d45baeDecodeGithubComWxbGoLabGeekGoCaiChaoCh441(l, v)
+	easyjsonF1d45baeDecodeGithubComWxbGoLabGeekGoCaiChaoCh442(l, v)
 }
-func easyjsonF1d45baeDecodeGithubComWxbGoLabGeekGoCaiChaoCh442(in *jlexer.Lexer, out *BasicInfo) {
+func easyjsonF1d45baeDecodeGithubComWxbGoLabGeekGoCaiChaoCh443(in *jlexer.Lexer, out *BasicInfo) {
 	isTopLevel := in.IsStart()
 	if in.IsNull() {
 		if isTopLevel {
@@ -222,7 +287,7 @@ func easyjsonF1d45baeDecodeGithubComWxbGoLabGeekGoCaiChaoCh442(in *jlexer.Lexer,
 		in.Consumed()
 	}
 }
-func easyjsonF1d45baeEncodeGithubComWxbGoLabGeekGoCaiChaoCh442(out *jwriter.Writer, in BasicInfo) {
+func easyjsonF1d45baeEncodeGithubComWxbGoLabGeekGoCaiChaoCh443(out *jwriter.Writer, in BasicInfo) {
 	out.RawByte('{')
 	first := true
 	_ = first
@@ -242,23 +307,23 @@ func easyjsonF1d45baeEncodeGithubComWxbGoLabGeekGoCaiChaoCh442(out *jwriter.Writ
 // MarshalJSON supports json.Marshaler interface
 func (v BasicInfo) MarshalJSON() ([]byte, error) {
 	w := jwriter.Writer{}
-	easyjsonF1d45baeEncodeGithubComWxbGoLabGeekGoCaiChaoCh442(&w, v)
+	easyjsonF1d45baeEncodeGithubComWxbGoLabGeekGoCaiChaoCh443(&w, v)
 	return w.Buffer.BuildBytes(), w.Error
 }
 
 // MarshalEasyJSON supports easyjson.Marshaler interface
 func (v BasicInfo) MarshalEasyJSON(w *jwriter.Writer) {
-	easyjsonF1d45baeEncodeGithubComWxbGoLabGeekGoCaiChaoCh442(w, v)
+	easyjsonF1d45baeEncodeGithubComWxbGoLabGeekGoCaiChaoCh443(w, v)
 }
 
 // UnmarshalJSON supports json.Unmarshaler interface
 func (v *BasicInfo) UnmarshalJSON(data []byte) error {
 	r := jlexer.Lexer{Data: data}
-	easyjsonF1d45baeDecodeGithubComWxbGoLabGeekGoCaiChaoCh442(&r, v)
+	easyjsonF1d45baeDecodeGithubComWxbGoLabGeekGoCaiChaoCh443(&r, v)
 	return r.Error()
 }
 
 // UnmarshalEasyJSON supports easyjson.Unmarshaler interface
 func (v *BasicInfo) UnmarshalEasyJSON(l *jlexer.Lexer) {
-	easyjsonF1d45baeDecodeGithubComWxbGoLabGeekGoCaiChaoCh442(l, v)
+	easyjsonF1d45baeDecodeGithubComWxbGoLabGeekGoCaiChaoCh443(l, v)
 }
