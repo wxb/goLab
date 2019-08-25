@@ -1,4 +1,4 @@
-package ch50_test
+package ch51_test
 
 import (
 	"bytes"
