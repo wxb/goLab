@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	name := "王晓勃[wangxiaobo]"
+	name := "王晓勃[wangxiaobo]🏷"
 	fmt.Printf("%q \n", name)
 	fmt.Printf("rune(char): %q \n", []rune(name))
 	fmt.Printf("rune(hex): %x \n", []rune(name))
