@@ -1,4 +1,4 @@
-package rabbitmq_test
+package tutorials_test
 
 import (
 	"log"
@@ -24,6 +24,7 @@ func TestSendQueue(t *testing.T) {
 	failOnError(err, "Failed to open a channel")
 	defer ch.Close()
 
+	// 队列的声明，如果可以确认相应名称的队列确实已经存在，则可以不用这里的声明，在下面的publish直接发送消息
 	q, err := ch.QueueDeclare(
 		"hello", // name
 		false,   // durable
