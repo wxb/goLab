@@ -52,4 +52,5 @@ func JsonIteratorToStruct(data []byte, againPerson []AgainPerson) ([]AgainPerson
 	// var jsonIter = jsoniter.
 	// err := json
 	// return againPerson, err
+	return []AgainPerson{}, nil
 }
