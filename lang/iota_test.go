@@ -66,12 +66,12 @@ const (
 func TestItoa(t *testing.T) {
 
 	fmt.Println(a, e, f)
-	t := reflect.TypeOf(a)
-	fmt.Println(t)
+	typeA := reflect.TypeOf(a)
+	fmt.Println(typeA)
 
 	fmt.Println(x, y, z)
-	t = reflect.TypeOf(x)
-	fmt.Println(t)
+	typeX := reflect.TypeOf(x)
+	fmt.Println(typeX)
 
 	fmt.Println(IgShellfish)
 	fmt.Println(IgEggs | IgChocolate | IgShellfish)
