@@ -71,4 +71,6 @@ func TestMapForSet(t *testing.T) {
 		t.Log(n, "is not existing")
 	}
 
+	s := []int{1, 2, 3}
+	delete(s, 1)
 }
