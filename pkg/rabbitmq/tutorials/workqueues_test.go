@@ -4,22 +4,11 @@ import (
 	"bytes"
 	"log"
 	"os"
-	"strings"
 	"testing"
 	"time"
 
 	"github.com/streadway/amqp"
 )
-
-func bodyFrom(args []string) string {
-	var s string
-	if (len(args) < 2) || os.Args[1] == "" {
-		s = "hello"
-	} else {
-		s = strings.Join(args[1:], " ")
-	}
-	return s
-}
 
 func TestSendWorkQueues(t *testing.T) {
 	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
