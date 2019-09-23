@@ -21,3 +21,13 @@ func bodyFrom(args []string) string {
 	}
 	return s
 }
+
+func severityFrom(args []string) string {
+	var s string
+	if (len(args) < 2) || os.Args[1] == "" {
+		s = "info"
+	} else {
+		s = args[1]
+	}
+	return s
+}
