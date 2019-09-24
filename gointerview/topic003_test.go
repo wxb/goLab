@@ -1,6 +1,5 @@
 package gointerview_test
 
-
 import (
 	"fmt"
 	"testing"
@@ -19,10 +18,12 @@ func pase_student() {
 		{Name: "wang", Age: 22},
 	}
 	for _, stu := range stus {
-		fmt.Println(&stu)
+		fmt.Printf("%p\n", &stu)
+		stu.Age = stu.Age + 10
 		m[stu.Name] = &stu
 	}
-	fmt.Println(*m["zhou"], *(m["li"]))
+	fmt.Println(m)
+	fmt.Printf("%v", m["li"])
 }
 
 func TestTopic003(t *testing.T) {
