@@ -1,5 +1,6 @@
 package gointerview_test
 
+import "testing"
 
 func TestTopic001(t *testing.T) {
 	i := GetValue()
