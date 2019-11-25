@@ -3,10 +3,11 @@ package ch31_test
 import (
 	"context"
 	"fmt"
+	"testing"
 )
 
 func doSlowRequest(id int) string {
-
+	fmt.Println("===", id)
 	return fmt.Sprintf("The request is from %d", id)
 }
 
@@ -22,6 +23,7 @@ func FirstResponseWithCancel() string {
 
 			select {
 			case <-ctx.Done():
+				fmt.Println("--", i)
 				return
 			default:
 				ret := doSlowRequest(i)
@@ -32,4 +34,8 @@ func FirstResponseWithCancel() string {
 	}
 
 	return <-ch
+}
+
+func TestFirstResponseWithCancel(t *testing.T) {
+	fmt.Println(FirstResponseWithCancel())
 }
