@@ -21,7 +21,12 @@ func main() {
 		// err := c.Bind(&params)
 		err := c.BindQuery(&params)
 		// err := c.BindJSON(&params)
+
 		fmt.Println(err)
+		// if err != nil {
+		// 	// c.Status(401) // [GIN-debug] [WARNING] Headers were already written. Wanted to override status code 400 with 401
+		// 	return
+		// }
 
 		c.JSON(http.StatusOK, gin.H{
 			"params": params,
