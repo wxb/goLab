@@ -4,6 +4,7 @@ go 1.13
 
 require (
 	github.com/easierway/concurrent_map v0.0.0-20190103024436-7073b0dd7e95
+	github.com/gin-contrib/multitemplate v0.0.0-20191128031210-95dee0dedf35
 	github.com/gin-gonic/gin v1.5.0
 	github.com/golang/protobuf v1.3.2
 	github.com/google/wire v0.3.0

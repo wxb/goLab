@@ -8,6 +8,8 @@ github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSs
 github.com/easierway/concurrent_map v0.0.0-20190103024436-7073b0dd7e95 h1:Ya+BwZ4gIvYbMHPGR5aFqTt1ykyFqCyn7vsG0ZRdFrk=
 github.com/easierway/concurrent_map v0.0.0-20190103024436-7073b0dd7e95/go.mod h1:03wbRB/3rTQV+WtQkl+4IJoKciueQRfKmBcO+agCg6o=
 github.com/fatih/color v1.7.0/go.mod h1:Zm6kSWBoL9eyXnKyktHP6abPY2pDugNf5KwzbycvMj4=
+github.com/gin-contrib/multitemplate v0.0.0-20191128031210-95dee0dedf35 h1:r0OJSVRKMiwAKHL/8FY40RbUXCOEirEojUhn76+qqzM=
+github.com/gin-contrib/multitemplate v0.0.0-20191128031210-95dee0dedf35/go.mod h1:sShmvj3YkVMUel3aJ24WMsuPHf/RNeevUJk0EFwpHlM=
 github.com/gin-contrib/sse v0.0.0-20190301062529-5545eab6dad3 h1:t8FVkw33L+wilf2QiWkw0UV77qRpcH/JHPKGpKa2E8g=
 github.com/gin-contrib/sse v0.0.0-20190301062529-5545eab6dad3/go.mod h1:VJ0WA2NBN22VlZ2dKZQPAPnyWw5XTlK1KymzLKsr59s=
 github.com/gin-contrib/sse v0.1.0 h1:Y/yl/+YNO8GZSjAhjMsSuLt29uWRFHdHYUb5lYOV9qE=
