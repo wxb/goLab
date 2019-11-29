@@ -61,16 +61,16 @@ func TestGormDB(t *testing.T) {
 
 		db := dbPool.Get().(*gorm.DB)
 		pc := []string{}
-		err := db.Table("pmc_arms_man").Pluck("sn", &pc).Error
+		err := db.Table("t_xxx").Pluck("sn", &pc).Error
 		dbPool.Put(db)
-		fmt.Println("pmc_arms_man", err, pc)
+		fmt.Println("t_xxx", err, pc)
 	}()
 
 	db := dbPool.Get().(*gorm.DB)
 	sn := []string{}
-	err := db.Table("ams_arm_info").Pluck("sn", &sn).Error
+	err := db.Table("t_xxx").Pluck("sn", &sn).Error
 	dbPool.Put(db)
-	fmt.Println("ams_arm_info", err, sn)
+	fmt.Println("t_xxx", err, sn)
 
 	<-ctx.Done()
 	fmt.Println("finish")
