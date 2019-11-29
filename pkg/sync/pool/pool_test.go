@@ -2,11 +2,16 @@ package pool_test
 
 import (
 	"bytes"
+	"context"
+	"fmt"
 	"io"
 	"os"
 	"sync"
 	"testing"
 	"time"
+
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/jinzhu/gorm"
 )
 
 var bufPool = sync.Pool{
@@ -37,4 +42,36 @@ func log(w io.Writer, key, val string) {
 
 func TestLog(t *testing.T) {
 	log(os.Stdout, "path", "/search?q=flowers")
+}
+
+func TestGormDB(t *testing.T) {
+	var dbPool = sync.Pool{
+		New: func() interface{} {
+			db, err := gorm.Open("mysql", "username:password@tcp(ip:port)/db?charset=utf8&parseTime=True&loc=Local")
+			if err != nil {
+				panic(err)
+			}
+			return db
+		},
+	}
+
+	ctx, cancel := context.WithCancel(context.Background())
+	go func() {
+		defer cancel()
+
+		db := dbPool.Get().(*gorm.DB)
+		pc := []string{}
+		err := db.Table("pmc_arms_man").Pluck("sn", &pc).Error
+		dbPool.Put(db)
+		fmt.Println("pmc_arms_man", err, pc)
+	}()
+
+	db := dbPool.Get().(*gorm.DB)
+	sn := []string{}
+	err := db.Table("ams_arm_info").Pluck("sn", &sn).Error
+	dbPool.Put(db)
+	fmt.Println("ams_arm_info", err, sn)
+
+	<-ctx.Done()
+	fmt.Println("finish")
 }
