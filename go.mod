@@ -11,6 +11,9 @@ require (
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/golang/protobuf v1.3.2
 	github.com/google/wire v0.3.0
+	github.com/jessevdk/go-assets v0.0.0-20160921144138-4f4301a06e15
+	github.com/jessevdk/go-assets-builder v0.0.0-20130903091706-b8483521738f // indirect
+	github.com/jessevdk/go-flags v1.4.0 // indirect
 	github.com/jinzhu/gorm v1.9.11
 	github.com/mailru/easyjson v0.7.0
 	github.com/orcaman/concurrent-map v0.0.0-20190826125027-8c72a8bb44f6

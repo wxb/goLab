@@ -62,8 +62,5 @@ func main() {
 		}
 	}
 
-	log.Println("--:")
-	time.Sleep(2 * time.Second)
-	log.Println("--:")
 	log.Println("Server exiting")
 }
