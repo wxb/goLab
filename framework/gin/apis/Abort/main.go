@@ -17,7 +17,7 @@ func main() {
 	v1 := egn.Group("/v1")
 	{
 		v1.Use(func(ctx *gin.Context) {
-			// ctx.AbortWithStatusJSON(404, "ss")
+			ctx.AbortWithStatusJSON(404, "ss")
 			fmt.Println("----")
 			ctx.Next()
 		}).Use(func(ctx *gin.Context) {
@@ -33,6 +33,7 @@ func main() {
 	v2 := egn.Group("/v2")
 	{
 		v2.Use(func(ctx *gin.Context) {
+			ctx.AbortWithStatus(http.StatusBadRequest)
 			fmt.Printf("v2v2v2v2")
 		})
 
