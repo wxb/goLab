@@ -18,3 +18,20 @@ func TestRead(t *testing.T) {
 	t.Log(nn, err, c, r.Len())
 
 }
+
+func TestReadAt(t *testing.T) {
+	r := strings.NewReader("abc的大写为ABC")
+	t.Log(r.Len(), r.Size())
+
+	s := []byte{1, 2, 3}
+	n, err := r.ReadAt(s, 2)
+	t.Log(n, err, string(s))
+
+	ss := []byte{1, 2, 3, 4}
+	nn, errr := r.ReadAt(ss, 2)
+	t.Log(nn, errr, string(ss))
+
+	sss := []byte{1, 2, 3, 4, 5}
+	nnn, eer := r.ReadAt(sss, 0)
+	t.Log(nnn, eer, string(sss))
+}
