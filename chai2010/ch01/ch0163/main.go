@@ -15,6 +15,7 @@ func main() {
 	p := pubsub.NewPublisher(100*time.Millisecond, 10)
 	defer p.Close()
 
+	// 订阅所有主题
 	all := p.Subscribe()
 	go func() {
 		for msg := range all {
@@ -22,6 +23,7 @@ func main() {
 		}
 	}()
 
+	// 订阅golang主题
 	golang := p.SubscribeTopic(func(v interface{}) bool {
 		if s, ok := v.(string); ok {
 			return strings.Contains(s, "golang")
@@ -34,6 +36,7 @@ func main() {
 		}
 	}()
 
+	// 发布主题
 	go func() {
 		rand.Seed(time.Now().UnixNano())
 		content := [...]string{"c", "world", "golang", "php", "java", "python"}
@@ -48,6 +51,7 @@ func main() {
 		}
 	}()
 
+	// 信号控制执行
 	ch := make(chan os.Signal, 1)
 	signal.Notify(ch, os.Interrupt)
 	s := <-ch
