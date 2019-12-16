@@ -188,3 +188,18 @@ func TestDecodeWeaklyTypedInput(t *testing.T) {
 
 	fmt.Printf("%#v", result)
 }
+
+func TestDecodeString(t *testing.T) {
+	// type Person struct {
+	// 	Name   string
+	// 	Age    int
+	// 	Emails []string
+	// }
+
+	input := "0"
+	var result bool
+	err := mapstructure.WeakDecode(input, &result)
+
+	fmt.Println(err)
+	fmt.Printf("%#v", result)
+}
