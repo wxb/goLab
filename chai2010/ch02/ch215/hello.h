@@ -1,0 +1,2 @@
+
+void SayHello(char* s);
