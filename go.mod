@@ -13,6 +13,8 @@ require (
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/golang/protobuf v1.3.2
 	github.com/google/wire v0.3.0
+	github.com/graphql-go/graphql v0.7.9
+	github.com/graphql-go/handler v0.2.3
 	github.com/howeyc/fsnotify v0.9.0 // indirect
 	github.com/imdario/mergo v0.3.9 // indirect
 	github.com/jessevdk/go-assets v0.0.0-20160921144138-4f4301a06e15
