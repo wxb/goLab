@@ -34,6 +34,7 @@ require (
 	github.com/stretchr/testify v1.4.0
 	github.com/tidwall/gjson v1.6.0
 	github.com/uniplaces/carbon v0.1.6
+	golang.org/dl v0.0.0-20211104154756-faba44267af3 // indirect
 	golang.org/x/crypto v0.0.0-20190325154230-a5d413f7728c
 	golang.org/x/net v0.0.0-20190923162816-aa69164e4478 // indirect
 	golang.org/x/sync v0.0.0-20190423024810-112230192c58
