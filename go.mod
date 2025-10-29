@@ -1,6 +1,6 @@
 module github.com/wxb/goLab
 
-go 1.13
+go 1.18
 
 require (
 	github.com/cosmtrek/air v1.12.1 // indirect
